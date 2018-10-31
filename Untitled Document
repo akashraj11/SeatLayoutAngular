@@ -1,0 +1,21 @@
+Seat Layout JSON
+
+{
+ "movieTitle": "String
+ "screenNo": Integer,
+ "selectVal": Integer,
+ "showTimeStamp": DATE, 
+ "layout":categories[
+			 "type": String
+			 "price": BIGDECIMAL,
+			 "position": Integer,
+			 "noOfColumn": Integer
+			 "noOfRows": Integer
+			 "seat": Seat[
+				 "number":Integer
+				 "status":Boolean
+		  	       	     ]
+		    ]
+
+}
+
