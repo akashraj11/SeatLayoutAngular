@@ -5,8 +5,8 @@
  "showTimeStamp": "October 30 2018 / FRI, 6:45PM" , 
  "category":[    {	 "type": "PREMIUM GOLD",
 			 "price": 500,
-			 "noOfColumn": 6,
-			 "noOfRows": 6,
+			 "noOfColumn": 5,
+			 "noOfRows": 3,
 			 "seat": [
 					{
 					 "number":1,
@@ -48,8 +48,8 @@
 		},
 		{	 "type": "SILVER CLASS",
 					"price": 250,
-					"noOfColumn": 3,
-					"noOfRows": 3,
+					"noOfColumn": 8,
+					"noOfRows": 4,
 					"seat": [
 						   {
 							"number":10,

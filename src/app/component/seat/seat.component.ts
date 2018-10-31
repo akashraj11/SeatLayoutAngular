@@ -19,11 +19,14 @@ export class SeatComponent implements OnInit {
 	position: number;
 	noOfRows: number;
 	noOfColumn: number;
+	ticketPrice: number;
+
 	type2: String;
 	position2: number;
 	noOfRows2: number;
 	noOfColumn2: number;
-	ticketPrice: number;
+	ticketPrice2: number;
+
 	convFee: number = 30;
 	totalPrice: number = 0;
 	currency: String = "Rs";
@@ -38,7 +41,7 @@ export class SeatComponent implements OnInit {
 	reserved: string[] = ['A2', 'A3', 'F5', 'F1', 'F2', 'F6', 'F7', 'F8', 'H1', 'H2', 'H3', 'H4'];
 	selected: string[] = [];
 
-	reserved2: string[] = ['A2', 'A3', 'F5', 'F1', 'F2', 'F6', 'F7', 'F8', 'H1', 'H2', 'H3', 'H4'];
+	reserved2: string[] = ['A1', 'A6', 'B5', 'B1', 'F2', 'F6', 'F7', 'F8', 'D1', 'D2', 'D3', 'D4'];
 	selected2: string[] = [];
 
 	// layout: Layout =
@@ -85,10 +88,11 @@ export class SeatComponent implements OnInit {
 				this.type = this.layout.category[0].type;
 				this.noOfRows = this.layout.category[0].noOfRows;
 				this.noOfColumn = this.layout.category[0].noOfColumn;
-
+				this.ticketPrice = this.layout.category[0].price;
 				this.type2 = this.layout.category[1].type;
 				this.noOfRows2 = this.layout.category[1].noOfRows;
 				this.noOfColumn2 = this.layout.category[1].noOfColumn;
+				this.ticketPrice2 = this.layout.category[1].price;
 				// this.layout.screenNo = data["screenNo"];
 				// this.layout.movieTitle = data["movieTitle"];
 				// this.layout.selectVal = data["selectVal"];
@@ -173,6 +177,6 @@ export class SeatComponent implements OnInit {
 	// 		alert("Selected Seats: " + this.selected + "\nTotal: " + (this.ticketPrice * this.selected.length + this.convFee));
 	// 	} else {
 	// 		alert("No seats selected!");
-	// 	}\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	// 	}
 	// }
 }
