@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment as env } from "../../../environments/environment";
 import { Layout } from 'src/app/domain/layout';
+import { Seat } from 'src/app/domain/Seat';
 
 
 //Component decorator
@@ -20,6 +21,8 @@ export class SeatComponent implements OnInit {
 	noOfRows: number;
 	noOfColumn: number;
 	ticketPrice: number;
+	seatLayoutGold: Seat;
+	seatLayoutSilver: Seat;
 
 	type2: String;
 	position2: number;
@@ -63,22 +66,21 @@ export class SeatComponent implements OnInit {
 	constructor(private http: HttpClient) { }
 
 	ngOnInit() {
-		console.log("ngoninit started");
+		console.log('ngoninit started');
 		this.defaultLoad();
-		console.log("ngoninit finished");
-		console.log("no of rows finally ", this.noOfRows);
+		console.log('ngoninit finished');
+		console.log('no of rows finally ', this.noOfRows);
 	}
 
 	defaultLoad() {
-		console.log("default load started");
+		console.log('default load started');
 		this.http.get(env.api)
 			.subscribe((data) => {
-				console.log("data is ", data);
+				console.log('data is ', data);
 				this.layout =
 					{
 						screenNo: data["screenNo"],
 						movieTitle: data["movieTitle"],
-						selectVal: data["selectVal"],
 						showTimeStamp: data["showTimeStamp"],
 						category: data["category"]
 					}
@@ -99,22 +101,22 @@ export class SeatComponent implements OnInit {
 				// this.layout.showTimeStamp = data["showTimeStamp"];
 				// this.layout.category = data["category"];
 				// this.ticketPrice = this.layout.category[0].price;
-				console.log("data -> no of rows ", this.layout.category[0].noOfRows)
+				console.log('data -> no of rows ', this.layout.category[0].noOfRows);
 				this.rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'].slice(0, this.noOfRows);
 				this.cols = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].slice(0, this.noOfColumn);
 
 
-				this.rows2 = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'].slice(0, this.noOfRows2);
+				this.rows2 = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'].slice(this.noOfRows,this.noOfRows+this.noOfRows2);
 				this.cols2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].slice(0, this.noOfColumn2);
 
 			});
-		console.log("no of rows are ", this.noOfRows);
-		console.log("default load finished");
+		console.log('no of rows are ', this.noOfRows);
+		console.log('default load finished');
 	}
 
 // Functions for Seats Of type Gold
 
-	//return status of each seat
+	// return status of each seat
 	getStatus = function (seatPos: string) {
 		if (this.reserved.indexOf(seatPos) !== -1) {
 			return 'reserved';
@@ -122,17 +124,17 @@ export class SeatComponent implements OnInit {
 			return 'selected';
 		}
 	}
-	//click handler
+	// click handler
 	seatClicked = function (seatPos: string) {
 		// console.log("testing the no of columns ", this.noOfColumn)
 		// console.log("testing the no of rows ", this.noOfRows)
 		var index = this.selected.indexOf(seatPos);
-		console.log("index is ", index);
+		console.log('index is', index);
 		if (index !== -1) {
 			// seat already selected, remove
 			this.selected.splice(index, 1)
 		} else {
-			//push to selected array only if it is not reserved
+			// push to selected array only if it is not reserved
 			if (this.reserved.indexOf(seatPos) === -1)
 				this.selected.push(seatPos);
 		}
@@ -154,12 +156,12 @@ export class SeatComponent implements OnInit {
 		// console.log("testing the no of columns ", this.noOfColumn2)
 		// console.log("testing the no of rows ", this.noOfRows2)
 		var index = this.selected2.indexOf(seatPos);
-		console.log("index is ", index);
+		console.log('index is ', index);
 		if (index !== -1) {
 			// seat already selected, remove
 			this.selected2.splice(index, 1)
 		} else {
-			//push to selected array only if it is not reserved
+			// push to selected array only if it is not reserved
 			if (this.reserved2.indexOf(seatPos) === -1)
 				this.selected2.push(seatPos);
 		}
@@ -171,7 +173,7 @@ export class SeatComponent implements OnInit {
 		this.selected2 = [];
 	}
 
-	//Buy button handler
+	// Buy button handler
 	// showSelected = function () {
 	// 	if (this.selected.length > 0) {
 	// 		alert("Selected Seats: " + this.selected + "\nTotal: " + (this.ticketPrice * this.selected.length + this.convFee));

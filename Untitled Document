@@ -8,7 +8,6 @@ Seat Layout JSON
  "layout":categories[
 			 "type": String
 			 "price": BIGDECIMAL,
-			 "position": Integer,
 			 "noOfColumn": Integer
 			 "noOfRows": Integer
 			 "seat": Seat[
